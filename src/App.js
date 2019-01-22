@@ -37,8 +37,8 @@ export default function App() {
     };
 
     useEffect(() => {
-        if (query) {
-            fetchMatchedVerses();
+        if (query && query.length) {
+            fetchMatchedVerses(query);
         }
     }, [query]);
 
