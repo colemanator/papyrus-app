@@ -9,11 +9,12 @@ const statuses = {
     ERROR: 'ERROR'
 }
 
-const queryVerses = debounce(300, (query) => {
-    return window.fetch('http://localhost:9000/bible?query=' + encodeURIComponent(query))
-      .then((response) => {
+const queryVerses = debounce(300, (query, callback) => {
+    window.fetch('http://localhost:9000/bible?query=' + encodeURIComponent(query))
+      .then(response => {
         return response.json();
-      });
+      })
+      .then(callback)
 });
 
 export default function App() {
@@ -23,13 +24,6 @@ export default function App() {
     const [query, setQuery] = useState('');
     const [matchedVerses, setMatchedVerses] = useState();
 
-    const fetchMatchedVerses = async (query) => {
-        const matchedVerses = await queryVerses(query);
-
-        setStatus(statuses.IDLE);
-        setMatchedVerses(matchedVerses);
-    };
-
     const handleQueryChange = (event) => {
         if (status !== statuses.SEARCHING) {
             setQuery(event.target.value);
@@ -38,11 +32,12 @@ export default function App() {
 
     useEffect(() => {
         if (query && query.length) {
-            fetchMatchedVerses(query);
+            queryVerses(query, json => {
+                setStatus(statuses.IDLE);    
+                setMatchedVerses(json);
+            })
         }
     }, [query]);
-
-    console.log(matchedVerses);
 
     return (
         <div className="App">
@@ -56,6 +51,11 @@ export default function App() {
                     value={query}
                     onChange={handleQueryChange}
                   />
+                  <ul>
+                    {matchedVerses && matchedVerses.map(verse => {
+                        return <li>{verse.text}</li>;
+                    })}
+                  </ul>
             </main>
         </div>
     );
