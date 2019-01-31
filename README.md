@@ -1,3 +1,10 @@
+# Papyrus App
+A frontend for the [papyrus] API.
+
+## Goals
+1. Have a frontend for the API
+1. Learn React Hooks
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
