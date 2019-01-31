@@ -1,5 +1,5 @@
 # Papyrus App
-A frontend for the [papyrus] API.
+A frontend for the [papyrus](https://github.com/colemanator/papyrus) API.
 
 ## Goals
 1. Have a frontend for the API
