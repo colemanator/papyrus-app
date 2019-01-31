@@ -1,0 +1,17 @@
+.matched_verse_item {
+    list-style: none;
+    border-style: solid;
+    border-color: #474747;
+    border-top: 1px;
+    border: solid #474747;
+    padding: 10px 20px;
+    max-width: 100%;
+    width: 720px;
+    border-width: 0px 0px 1px;
+}
+
+.matched_verse_item__details__book, .matched_verse_item__details__chapter_verse {
+    font-size: 16px;
+    color: orange;
+    margin-right: 5px;
+}

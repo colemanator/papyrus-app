@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { debounce } from 'throttle-debounce';
+import MatchedVerseList from './components/matched-verse-list';
 
-import './App.css';
+import './css/app.css';
 
 const statuses = {
     IDLE: 'idle',
@@ -40,22 +41,23 @@ export default function App() {
     }, [query]);
 
     return (
-        <div className="App">
-            <header className="App-header">
-                <h1>Papyrus</h1>
+        <div className="papyrus">
+            <header className="papyrus__header">
+                <h1 className="papyrus__header__heading">
+                    Papyrus
+                </h1>
             </header>
-            <main>
+            <main className="papyrus__main">
                 <input
+                    className="papyrus__main__search"
                     placeholder="search"
                     type="text"
                     value={query}
                     onChange={handleQueryChange}
                   />
-                  <ul>
-                    {matchedVerses && matchedVerses.map(verse => {
-                        return <li>{verse.text}</li>;
-                    })}
-                  </ul>
+                  <MatchedVerseList 
+                    matchedVerses={matchedVerses}
+                  />
             </main>
         </div>
     );

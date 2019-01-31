@@ -1,0 +1,29 @@
+.papyrus {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 80px;
+}
+
+.papyrus__header__heading {
+  font-size: 42px;
+  color: #474747;
+}
+
+.papyrus__main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.papyrus__main__search {
+  width: 70%;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 1px solid orange;
+  padding: 10px 20px;
+  color: #474747;
+  max-width: 500px;
+}
