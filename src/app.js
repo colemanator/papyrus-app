@@ -8,7 +8,7 @@ const statuses = {
     IDLE: 'idle',
     SEARCHING: 'searching',
     ERROR: 'ERROR'
-}
+};
 
 const queryVerses = debounce(300, (query, callback) => {
     window.fetch('http://localhost:9000/bible?query=' + encodeURIComponent(query))
