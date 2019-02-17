@@ -11,7 +11,7 @@ const statuses = {
 };
 
 const queryVerses = debounce(300, (query, callback) => {
-    window.fetch('http://localhost:9000/bible?query=' + encodeURIComponent(query))
+    window.fetch(process.env.REACT_APP_API_URL + '/verses?query=' + encodeURIComponent(query))
       .then(response => {
         return response.json();
       })
